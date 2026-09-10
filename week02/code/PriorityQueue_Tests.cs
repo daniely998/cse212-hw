@@ -6,9 +6,9 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 public class PriorityQueueTests
 {
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Create a queue with multiple items and attempt to remove using Dequeue.
+    // Expected Result: Banana
+    // Defect(s) Found: returned "Apple" because the Dequeue method was missing the RemoveAt() function and for loop did not go through all items in the queue.
     public void TestPriorityQueue_RemoveHighestPriorityItem()
     {
         var fruits = new PriorityQueue();
@@ -21,9 +21,9 @@ public class PriorityQueueTests
     }
 
     [TestMethod]
-    // Scenario: 
-    // Expected Result: 
-    // Defect(s) Found: 
+    // Scenario: Create a queue with multiple items of the same highest priority and attempt to remove using Dequeue.
+    // Expected Result: Grapes
+    // Defect(s) Found: "Banana" was returned because the Dequeue method was replacing the highPriorityIndex variable with other index of items with the same priority.
     public void TestPriorityQueue_MultipleHighestPriorityItems()
     {
         var fruits = new PriorityQueue();
@@ -36,7 +36,9 @@ public class PriorityQueueTests
         Assert.AreEqual("Grapes", removed);
     }
 
-    // Add more test cases as needed below.
+    // Scenario: Trying to Dequeue from an empty queue
+    // Expected Result: Exception should be thrown with appropriate error message.
+    // Defect(s) Found: None.
     [TestMethod]
     public void TestPriorityQueue_EmptyQueue()
     {
